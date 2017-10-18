@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -eu
 
 download_file() {
   local DESCRIPTION=$1; shift
@@ -6,7 +6,9 @@ download_file() {
   local URL=$1; shift
   local OUTPUT_FILE=$1; shift
 
-  echo "*** $DESCRIPTION"
+  echo -e "\n*******************************************************************************************************************"
+  echo "*** ${DESCRIPTION}"
+  echo -e "*******************************************************************************************************************\n"
 
   test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 
@@ -16,14 +18,15 @@ download_file() {
     wget --continue --directory-prefix="$DIRECTORY_NAME" "$URL"
   fi
 
-  for FILE in `find $DIRECTORY_NAME -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|mp3\)$'`; do
+  for FILE in `find "$DIRECTORY_NAME" -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|ts\|mp3\)$'`; do
     #ffprobe -v quiet -print_format json -show_format -show_streams -print_format json $FILE > ${FILE}.json
     mediainfo $FILE > ${FILE}.nfo
   done
 }
 
 
-USB_DESTINATION="/run/media/ruzickap/peru/"
+#USB_DESTINATION="/run/media/ruzickap/peru/"
+USB_DESTINATION="/var/tmp/test"
 
 test -d $USB_DESTINATION || echo "*** Destionation directory \"$USB_DESTINATION\" doesn't exists !!!"
 
@@ -31,6 +34,7 @@ cd $USB_DESTINATION
 
 CZ_CHARACTERS="Příliš žluťoučký kůň úpěl ďábelské ódy"
 test -d "${CZ_CHARACTERS}" || mkdir "${CZ_CHARACTERS}"
+download_file "PDF" "${CZ_CHARACTERS}" "https://www.votruba.in/int/pisma.pdf" "pisma.pdf"
 
 DESCRIPTION="Dolby Digital Plus 7.1 Channel Check [1920x1080, H.264, 8 bits, 5 Mbs, 29.970 fps] [48 kHz, E-AC-3, 6 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
@@ -50,56 +54,67 @@ URL="http://s1.demo-world.eu/hd_trailers.php?file=dolby_amaze_lossless-DWEU.m2ts
 OUTPUT_FILE="dolby_amaze_lossless-DWEU.m2ts"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-DESCRIPTION="LG Colors of Journey - HDR [3840x2160, HEVC, 10 bits, 40 Mbs, 60 fps] [48 kHz, AAC, 2 ch]"
+DESCRIPTION="ARTE Ultra-HD (test) : carnival - HDR [3840x2160, HEVC, 10 bits, 51 Mbs, 25 fps] [48 kHz, AAC , 2 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://demo-uhd3d.com/files/uhd4k/LG_Colors-of-Journey-HDR.mp4"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+URL="http://demo-uhd3d.com/files/uhd4k/ARTE_UltraHD_trailer_carnival.ts"
+OUTPUT_FILE="ARTE_UltraHD_trailer_carnival.ts"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Jellyfish Video Bitrate Test File [3840x2160, HEVC, 10 bits, 400 Mbs, 30 fps]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="http://jell.yfish.us/media/jellyfish-400-mbps-4k-uhd-hevc-10bit.mkv"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+OUTPUT_FILE="jellyfish-400-mbps-4k-uhd-hevc-10bit.mkv"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-DESCRIPTION="Tears of Steel [4096x1720, HEVC, 8 bits, 2.5 Mbs, 24 fps] [48 kHz, AC3, 6 ch] [UTF Subs] [UTF Ext Subs]"
+DESCRIPTION="Tears of Steel [4096x1720, HEVC, 8 bits, 2.5 Mbs, 24 fps] [48 kHz, AC3, 6 ch] [UTF Subs]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="http://www.libde265.org/hevc-bitstreams/tos-4096x1720-tiles.mkv"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
-download_file "Tears of Steel CZ Subtitles (TOS-CZ.srt)" "$DIRECTORY_NAME" "https://download.blender.org/demo/movies/ToS/subtitles/TOS-CZ.srt"
+OUTPUT_FILE="tos-4096x1720-tiles.mkv"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Big Buck Bunny Stereoscopic 3D [1920x1080x2, H.264, 8 bits, 6.5 Mbs, 60fps] [48 kHz, MP3, 2 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_stereo_abl.mp4"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+OUTPUT_FILE="bbb_sunflower_1080p_60fps_stereo_abl.mp4"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Big Buck Bunny Standard 2D [3840x2160, H.264, 8 bits, 8.5 Mbs, 60fps] [48 kHz, MP3, 2 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_60fps_normal.mp4"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+OUTPUT_FILE="bbb_sunflower_2160p_60fps_normal.mp4"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Sintel [3840x2160, H.264, 8 bits, 40 Mbs, 24 fps] [48 kHz, AC3, 6 ch] [UTF Subs] [UTF Ext Subs]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="https://download.blender.org/durian/movies/Sintel.2010.4k.mkv"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
-download_file "Sintel CZ Subtitles (sintel_cz.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_cz.srt"
-download_file "Sintel SK Subtitles (sintel_sk.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_sk.srt"
+OUTPUT_FILE="Sintel.2010.4k.mkv"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
+OUTPUT_FILE="Sintel.2010.4k-cz.srt"
+download_file "Sintel CZ Subtitles (sintel_cz.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_cz.srt" "$OUTPUT_FILE"
+cp "${DIRECTORY_NAME}/Sintel.2010.4k-cz.srt" "${DIRECTORY_NAME}/Sintel.2010.4k.srt"
+OUTPUT_FILE="Sintel.2010.4k-sk.srt"
+download_file "Sintel SK Subtitles (sintel_sk.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_sk.srt" "$OUTPUT_FILE"
 
 DESCRIPTION="OGG"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="https://upload.wikimedia.org/wikipedia/commons/3/3c/01_-_Vivaldi_Spring_mvt_1_Allegro_-_John_Harrison_violin.ogg"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+OUTPUT_FILE="01_-_Vivaldi_Spring_mvt_1_Allegro_-_John_Harrison_violin.ogg"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="FLAC [192 kHz, FLAC, 2 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="https://samples.mplayerhq.hu/flac/24-bit_192kHz.flac"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+OUTPUT_FILE="24-bit_192kHz.flac"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="FLAC [44 kHz, FLAC, 2 ch] [Metadata, Cover]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="https://samples.mplayerhq.hu/flac/larger_than_64k_flac_metadata.flac"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
+OUTPUT_FILE="larger_than_64k_flac_metadata.flac"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 URL="https://samples.mplayerhq.hu/flac/larger_than_64k_flac_metadata.txt"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
-
+OUTPUT_FILE="larger_than_64k_flac_metadata.txt"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 echo "*** UHD (4k) photos"
 DIRECTORY_NAME="UHD_4k_Photos"

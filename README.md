@@ -4,6 +4,8 @@ This script will store testing videos/music/pictures to your USB Stick which can
 Notes:
 
 * http://kodi.wiki/view/Samples
+* http://www.andytather.co.uk/Panda/VideoGalleryPage.aspx
+* http://4kw.in
 
 Sony, Sharp, Philips - Android TV (Sony KD-65ZD9)
 LG - WebOS (LG OLED55C6V)

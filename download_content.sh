@@ -130,18 +130,11 @@ echo "*** 4k 8k 16k photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 wget -c --directory-prefix="$DIRECTORY_NAME" \
-https://4.bp.blogspot.com/-9jVzXU0v2_8/V9zxg9kr25I/AAAAAAACD0w/iJs-avKSVMUbLKQyzLANNHLhN5HHRguRgCPcB/s0/Hot_Landscape_from_Glencoe_UK_4k.jpg \
-https://4.bp.blogspot.com/-gc6IoIHTTvA/V6NdnwTUk0I/AAAAAAACChM/OlcKQYg2S986CgSjwD4qkhDKFYR5hk0OACPcB/s0/Long_Exposure_Light_Effect_4k.jpg \
-https://4.bp.blogspot.com/-JEvVd43ZZ-A/V33tA-XCrzI/AAAAAAACBsg/ouw1mWSa3FwY6LXlQqPrg07dfs4SzOoCACKgB/s0/Two_Fireworks_uhd.jpg \
-https://4.bp.blogspot.com/-CDDg8LTum9E/V1OuvJ2nO6I/AAAAAAACBFk/qC6MULjIuQoXES6lnBKnlKP1QfxNtgWGwCKgB/s0/Orion_Nebula_uhd.jpg \
-https://4.bp.blogspot.com/-z_g8jk_x__U/VwDViKVEbYI/AAAAAAAB-28/RrxJmWQ9Na4o-BIDihSJqKyi3P2J9gnsA/s0/Premium_Flower_Image_uhd.jpg \
-https://www.thewallpapers.org/photo/76690/aerial-view-of-paris-at-sunset.jpg \
 http://4kw.in/Wallpapers/Campanula-takesimana-8k-wallpaper.jpg \
 http://4kw.in/Wallpapers/Women-model-water-wet-swimming-closed-eyes-8k-wallpaper.jpg \
 http://4kw.in/Wallpapers/Zoo-tiger-8k-7680x4320.jpg \
 http://4kw.in/Wallpapers/Silver-dress-girl-lying-grass-8k-wallpaper.jpg \
 http://4kw.in/Wallpapers/Girl-dancing-pop-blonde-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Beautiful-sad-girls-wallpaper.jpg \
 http://4kw.in/Wallpapers/Woman-on-a-bicycle-8k-wallpaper.jpg \
 http://4kw.in/Wallpapers/Tiger-in-snow-8k-image.jpg \
 http://4kw.in/Wallpapers/Beautiful-woman-laying-in-the-grass-8k.jpg \
@@ -153,6 +146,14 @@ http://4kw.in/Wallpapers/Pretty-oriental-woman-8k-wallpaper.jpg \
 http://4kw.in/Wallpapers/Programming-syntax-8k.jpg \
 http://4kw.in/Wallpapers/Ready-to-fly-8k.jpg \
 http://4kw.in/Wallpapers/Stars-sky-photography-8k.jpg \
+http://4kw.in/Wallpapers/3d-abstract-fractal-4k-wallpaper.jpg \
+http://4kw.in/Wallpapers/3d-abstract-fractal-balls-flying-4k-wallpaper.jpg \
+http://4kw.in/Wallpapers/Abstract-flower-fractal-rotation-4k-wallpaper.jpg \
+http://4kw.in/Wallpapers/Young-Woman-Enjoying-Sunny-Day-Flower-Field-4K.jpg \
+http://4kw.in/Wallpapers/Alps-mountains-4k-wallpaper.jpg \
+http://4kw.in/Wallpapers/Cosmos-blossom-4k.jpg \
+http://4kw.in/Wallpapers/Girl-looking-at-the-skull-4k.jpg \
+http://4kw.in/Wallpapers/City-life-4k.jpg \
 https://www.thewallpapers.org/photo/76170/3-2-Rocky-Beach.jpg \
 http://i.cubeupload.com/y5KXjM.jpg \
 https://u.cubeupload.com/Q3Sgp7.jpg \

@@ -54,7 +54,7 @@ URL="http://s1.demo-world.eu/hd_trailers.php?file=dolby_amaze_lossless-DWEU.m2ts
 OUTPUT_FILE="dolby_amaze_lossless-DWEU.m2ts"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-DESCRIPTION="ARTE Ultra-HD (test) : carnival - HDR [3840x2160, HEVC, 10 bits, 51 Mbs, 25 fps] [48 kHz, AAC, 2 ch]"
+DESCRIPTION="ARTE Ultra-HD (test) - carnival - HDR [3840x2160, HEVC, 10 bits, 51 Mbs, 25 fps] [48 kHz, AAC, 2 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="http://demo-uhd3d.com/files/uhd4k/ARTE_UltraHD_trailer_carnival.ts"
 OUTPUT_FILE="ARTE_UltraHD_trailer_carnival.ts"
@@ -101,6 +101,12 @@ URL="https://upload.wikimedia.org/wikipedia/commons/3/3c/01_-_Vivaldi_Spring_mvt
 OUTPUT_FILE="01_-_Vivaldi_Spring_mvt_1_Allegro_-_John_Harrison_violin.ogg"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
+DESCRIPTION="Opus"
+DIRECTORY_NAME="${DESCRIPTION// /_}"
+URL="https://media.xiph.org/tearsofsteel/tearsofsteel-surround.opus"
+OUTPUT_FILE="tearsofsteel-surround.opus"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
+
 DESCRIPTION="FLAC [192 kHz, FLAC, 2 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
 URL="https://samples.mplayerhq.hu/flac/24-bit_192kHz.flac"
@@ -116,17 +122,18 @@ URL="https://samples.mplayerhq.hu/flac/larger_than_64k_flac_metadata.txt"
 OUTPUT_FILE="larger_than_64k_flac_metadata.txt"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-echo "*** Ghost Towns in 8K"
+echo -e "\n*** Ghost Towns in 8K"
 DIRECTORY_NAME="Ghost_Towns_in_8K_[7680x4320,_H.264,_8_bits,_38.4_Mbs,_23.836_fps]_[48_kHz,_Opus,_2_ch]"
 test -d "$DIRECTORY_NAME" || \
 ( \
   mkdir "$DIRECTORY_NAME" && \
   cd "$DIRECTORY_NAME" && \
   youtube-dl https://youtu.be/sLprVF6d7Ug && \
+  mediainfo "Ghost Towns in 8K-sLprVF6d7Ug.mkv" > "Ghost Towns in 8K-sLprVF6d7Ug.mkv.nfo" && \
   cd - \
 )
 
-echo "*** 4k 8k 16k photos"
+echo -e "\n*** 4k 8k 16k photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 wget -c --directory-prefix="$DIRECTORY_NAME" \
@@ -154,12 +161,18 @@ http://4kw.in/Wallpapers/Alps-mountains-4k-wallpaper.jpg \
 http://4kw.in/Wallpapers/Cosmos-blossom-4k.jpg \
 http://4kw.in/Wallpapers/Girl-looking-at-the-skull-4k.jpg \
 http://4kw.in/Wallpapers/City-life-4k.jpg \
-https://www.thewallpapers.org/photo/76170/3-2-Rocky-Beach.jpg \
-http://i.cubeupload.com/y5KXjM.jpg \
-https://u.cubeupload.com/Q3Sgp7.jpg \
 http://www.loadthegame.com/wp-content/uploads/2016/06/DOOM_4_02_1463158191.jpg \
 http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-04.jpg \
 http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-03.jpg \
 http://i.imgur.com/7FdS105.jpg \
 http://ps3.tgbus.com/UploadFiles/201305/20130516105149437.jpg \
 https://orig00.deviantart.net/4a77/f/2015/264/4/4/spiral_fractal_at_15360x8640___16k__by_ksennon-d9ae2ul.jpg
+
+echo -e "\n*** Test Patterns"
+DIRECTORY_NAME="Test_Patterns"
+test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
+wget -c --directory-prefix="$DIRECTORY_NAME" \
+https://upload.wikimedia.org/wikipedia/commons/a/aa/Philips_PM5544.svg \
+https://www.clker.com/cliparts/d/3/4/8/122620237858385735ivak_TV_Test_Screen.svg \
+https://upload.wikimedia.org/wikipedia/commons/2/2b/EIA_Resolution_Chart_1956.svg
+

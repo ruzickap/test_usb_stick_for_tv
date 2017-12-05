@@ -8,6 +8,7 @@ For UHD / 4K Video streams with [H.265](https://en.wikipedia.org/wiki/High_Effic
 * [802.11ax](https://en.wikipedia.org/wiki/IEEE_802.11ax) WiFi, but you can get probably only [802.11ac](https://en.wikipedia.org/wiki/IEEE_802.11ac)
 * Bluetooth for Wireless Headphones - [LDAC](https://en.wikipedia.org/wiki/LDAC_(codec))
 * Install and test Kodi in case of Android TV
+* Raspbery Pi -> Kodi -> Audio Passthrough (AC3, E-AC3, DTS) - TV should be able to decode encoded audio sent through HDMI which saves CPU in RPi (https://www.cnet.com/news/20-tvs-tested-which-sets-can-pass-surround-sound-to-a-sound-bar/)
 
 
 ## Tests

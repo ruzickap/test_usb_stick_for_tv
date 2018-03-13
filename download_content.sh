@@ -133,6 +133,9 @@ test -d "$DIRECTORY_NAME" || \
   cd - \
 )
 
+#ffmpeg -f lavfi -i testsrc=duration=5:size=7680x4320:rate=30 testsrc.mkv
+#ffmpeg -f lavfi -i mandelbrot=size=7680x4320:rate=30 -t 60 testsrc.mkv
+
 echo -e "\n*** 4k 8k 16k photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"

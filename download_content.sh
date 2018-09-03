@@ -178,4 +178,3 @@ wget -c --directory-prefix="$DIRECTORY_NAME" \
 https://upload.wikimedia.org/wikipedia/commons/a/aa/Philips_PM5544.svg \
 https://www.clker.com/cliparts/d/3/4/8/122620237858385735ivak_TV_Test_Screen.svg \
 https://upload.wikimedia.org/wikipedia/commons/2/2b/EIA_Resolution_Chart_1956.svg
-

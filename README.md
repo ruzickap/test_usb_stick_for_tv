@@ -9,11 +9,14 @@ For UHD / 4K Video streams with [H.265](https://en.wikipedia.org/wiki/High_Effic
 * [1GB Network Interface](https://en.wikipedia.org/wiki/Gigabit_Ethernet)
 * [802.11ax](https://en.wikipedia.org/wiki/IEEE_802.11ax) WiFi, but you can get probably only [802.11ac](https://en.wikipedia.org/wiki/IEEE_802.11ac)
 * Bluetooth for Wireless Headphones - [LDAC](https://en.wikipedia.org/wiki/LDAC_(codec))
+* Bluetooth 5.0
 * Install and test Kodi in case of Android TV
 * Raspbery Pi -> Kodi -> Audio Passthrough (AC3, E-AC3, DTS) - TV should be able to decode encoded audio sent through HDMI which saves CPU in RPi [https://www.cnet.com/news/20-tvs-tested-which-sets-can-pass-surround-sound-to-a-sound-bar/](https://www.cnet.com/news/20-tvs-tested-which-sets-can-pass-surround-sound-to-a-sound-bar/)
 * [HbbTV](https://en.wikipedia.org/wiki/Hybrid_Broadcast_Broadband_TV) 2.0 - [https://technet.idnes.cz/televizni-prijimace-dvb-t2-a-hbbtv-dl1-/digitv.aspx](https://technet.idnes.cz/televizni-prijimace-dvb-t2-a-hbbtv-dl1-/digitv.aspx)
 * Ultra HD Premium certification
 * HDMI 2.1
+* USB-C (USB 3.1 Gen1), note: [USB-C length](https://notebook.cz/clanky/technologie/2017/usb-3-1/usb-type-c-lenght.jpg)
+* [HDR10+](https://en.wikipedia.org/wiki/High-dynamic-range_video)
 
 ## Tests
 
@@ -31,3 +34,7 @@ For UHD / 4K Video streams with [H.265](https://en.wikipedia.org/wiki/High_Effic
 * LG - WebOS (LG OLED55C6V)
 * Samsung - Smart Hub and Tizen OS (Samsung UE49KU6452U)
 * Panasonic - Firefox OS
+
+## Web pages
+
+* [The Sony Android TV Experience (2018/Nougat)](https://docs.google.com/document/d/1EPzlq_ipIPMCDoMqMgDl0IuKmTsMoZHeKKwE_zxbFUk/pub)

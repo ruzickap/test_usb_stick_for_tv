@@ -19,14 +19,14 @@ download_file() {
   fi
 
   for FILE in `find "$DIRECTORY_NAME" -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|ts\|mp3\)$'`; do
-    #ffprobe -v quiet -print_format json -show_format -show_streams -print_format json $FILE > ${FILE}.json
+    mediainfo --Output=JSON $FILE > ${FILE}.json
     mediainfo $FILE > ${FILE}.nfo
   done
 }
 
 
 #USB_DESTINATION="/run/media/ruzickap/peru/"
-USB_DESTINATION="/var/tmp/test"
+USB_DESTINATION="/run/media/pruzicka/f1a609de-5e47-4655-8017-917758eec60b/videos/"
 
 test -d $USB_DESTINATION || echo "*** Destionation directory \"$USB_DESTINATION\" doesn't exists !!!"
 
@@ -35,6 +35,10 @@ cd $USB_DESTINATION
 CZ_CHARACTERS="Příliš žluťoučký kůň úpěl ďábelské ódy"
 test -d "${CZ_CHARACTERS}" || mkdir "${CZ_CHARACTERS}"
 download_file "PDF" "${CZ_CHARACTERS}" "https://www.votruba.in/int/pisma.pdf" "pisma.pdf"
+
+######################################################
+# https://www.demo-world.eu/2d-demo-trailers-uhd/
+######################################################
 
 DESCRIPTION="Dolby Digital Plus 7.1 Channel Check [1920x1080, H.264, 8 bits, 5 Mbs, 29.970 fps] [48 kHz, E-AC-3, 6 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
@@ -54,11 +58,15 @@ URL="http://s1.demo-world.eu/hd_trailers.php?file=dolby_amaze_lossless-DWEU.m2ts
 OUTPUT_FILE="dolby_amaze_lossless-DWEU.m2ts"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-DESCRIPTION="ARTE Ultra-HD (test) - carnival - HDR [3840x2160, HEVC, 10 bits, 51 Mbs, 25 fps] [48 kHz, AAC, 2 ch]"
+DESCRIPTION="DTS:X 7.1.4 Callout (Lossless) [3840x2160, H.265, 10 bits, 68.3 Mbs, 23.976 fps] [48 kHz, DTS XLL X, 8 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://demo-uhd3d.com/files/uhd4k/ARTE_UltraHD_trailer_carnival.ts"
-OUTPUT_FILE="ARTE_UltraHD_trailer_carnival.ts"
+URL="http://s1.demo-world.eu/uhd_trailers.php?file=dts_x_7_1_4_callout_lossless_uhd-DWEU.mkv"
+OUTPUT_FILE="dts_x_7_1_4_callout_lossless_uhd-DWEU.mkv"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
+
+######################################################
+# http://jell.yfish.us/
+######################################################
 
 DESCRIPTION="Jellyfish Video Bitrate Test File [3840x2160, HEVC, 10 bits, 400 Mbs, 30 fps]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
@@ -84,16 +92,22 @@ URL="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_6
 OUTPUT_FILE="bbb_sunflower_2160p_60fps_normal.mp4"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-DESCRIPTION="Sintel [3840x2160, H.264, 8 bits, 40 Mbs, 24 fps] [48 kHz, AC3, 6 ch] [UTF Subs] [UTF Ext Subs]"
+DESCRIPTION="Sintel [4096x1744, H.265, 8 bits, 4.3 Mbs, 24 fps] [48 kHz, AAC, 6 ch] [UTF Subs] [UTF Ext Subs]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="https://download.blender.org/durian/movies/Sintel.2010.4k.mkv"
-OUTPUT_FILE="Sintel.2010.4k.mkv"
+URL="https://www.libde265.org/hevc-bitstreams/sintel-4096x1744-cfg02.mkv"
+OUTPUT_FILE="sintel-4096x1744-cfg02.mkv"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
-OUTPUT_FILE="Sintel.2010.4k-cz.srt"
+OUTPUT_FILE="sintel-4096x1744-cfg02-cz.srt"
 download_file "Sintel CZ Subtitles (sintel_cz.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_cz.srt" "$OUTPUT_FILE"
-cp "${DIRECTORY_NAME}/Sintel.2010.4k-cz.srt" "${DIRECTORY_NAME}/Sintel.2010.4k.srt"
-OUTPUT_FILE="Sintel.2010.4k-sk.srt"
+cp "${DIRECTORY_NAME}/sintel-4096x1744-cfg02-cz.srt" "${DIRECTORY_NAME}/sintel-4096x1744-cfg02.srt"
+OUTPUT_FILE="sintel-4096x1744-cfg02-sk.srt"
 download_file "Sintel SK Subtitles (sintel_sk.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_sk.srt" "$OUTPUT_FILE"
+
+DESCRIPTION="First 8K Video from Space [8192x4096, H.265, 8 bits, 138 Mbs, 23.976fps] [48 kHz, AAC, 2 ch]"
+DIRECTORY_NAME="${DESCRIPTION// /_}"
+URL="https://images-assets.nasa.gov/video/First-8K-Video-from-Space/First-8K-Video-from-Space~orig.mp4"
+OUTPUT_FILE="First-8K-Video-from-Space~orig.mp4"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="OGG"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
@@ -121,20 +135,6 @@ download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 URL="https://samples.mplayerhq.hu/flac/larger_than_64k_flac_metadata.txt"
 OUTPUT_FILE="larger_than_64k_flac_metadata.txt"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
-
-echo -e "\n*** Ghost Towns in 8K"
-DIRECTORY_NAME="Ghost_Towns_in_8K_[7680x4320,_H.264,_8_bits,_38.4_Mbs,_23.836_fps]_[48_kHz,_Opus,_2_ch]"
-test -d "$DIRECTORY_NAME" || \
-( \
-  mkdir "$DIRECTORY_NAME" && \
-  cd "$DIRECTORY_NAME" && \
-  youtube-dl https://youtu.be/sLprVF6d7Ug && \
-  mediainfo "Ghost Towns in 8K-sLprVF6d7Ug.mkv" > "Ghost Towns in 8K-sLprVF6d7Ug.mkv.nfo" && \
-  cd - \
-)
-
-#ffmpeg -f lavfi -i testsrc=duration=5:size=7680x4320:rate=30 testsrc.mkv
-#ffmpeg -f lavfi -i mandelbrot=size=7680x4320:rate=30 -t 60 testsrc.mkv
 
 echo -e "\n*** 4k 8k 16k photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"

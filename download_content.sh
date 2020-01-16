@@ -18,10 +18,12 @@ download_file() {
     wget --continue --directory-prefix="$DIRECTORY_NAME" "$URL"
   fi
 
-  for FILE in `find "$DIRECTORY_NAME" -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|ts\|mp3\)$'`; do
-    mediainfo --Output=JSON $FILE > ${FILE}.json
-    mediainfo $FILE > ${FILE}.nfo
-  done
+
+  while IFS= read -r -d '' FILE
+  do
+    mediainfo --Output=JSON "$FILE" > "${FILE}.json"
+    mediainfo "$FILE" > "${FILE}.nfo"
+  done <   <(find "$DIRECTORY_NAME" -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|ts\|mp3\)$')
 }
 
 

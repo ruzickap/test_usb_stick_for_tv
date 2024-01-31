@@ -29,9 +29,8 @@ compression you will need:
 
 ## Notes
 
-* [http://kodi.wiki/view/Samples](http://kodi.wiki/view/Samples)
-* [http://www.andytather.co.uk/Panda/VideoGalleryPage.aspx](http://www.andytather.co.uk/Panda/VideoGalleryPage.aspx)
-* [http://4kw.in](http://4kw.in)
+* <http://kodi.wiki/view/Samples>
+* <https://andytather.co.uk/Panda/VideoGalleryPage.aspx>
 
 ## TVs
 
@@ -39,7 +38,3 @@ compression you will need:
 * LG - WebOS (LG OLED55C6V)
 * Samsung - Smart Hub and Tizen OS (Samsung UE49KU6452U)
 * Panasonic - Firefox OS
-
-## Web pages
-
-* [The Sony Android TV Experience (2018/Nougat)](https://docs.google.com/document/d/1EPzlq_ipIPMCDoMqMgDl0IuKmTsMoZHeKKwE_zxbFUk/pub)

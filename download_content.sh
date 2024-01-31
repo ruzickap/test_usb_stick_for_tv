@@ -1,10 +1,14 @@
 #!/bin/bash -eu
 
 download_file() {
-  local DESCRIPTION=$1; shift
-  local DIRECTORY_NAME=$1; shift
-  local URL=$1; shift
-  local OUTPUT_FILE=$1; shift
+  local DESCRIPTION=$1
+  shift
+  local DIRECTORY_NAME=$1
+  shift
+  local URL=$1
+  shift
+  local OUTPUT_FILE=$1
+  shift
 
   echo -e "\n*******************************************************************************************************************"
   echo "*** ${DESCRIPTION}"
@@ -18,16 +22,13 @@ download_file() {
     wget --continue --directory-prefix="$DIRECTORY_NAME" "$URL"
   fi
 
-
-  while IFS= read -r -d '' FILE
-  do
+  while IFS= read -r -d '' FILE; do
     mediainfo --Output=JSON "$FILE" > "${FILE}.json"
     mediainfo "$FILE" > "${FILE}.nfo"
-  done <   <(find "$DIRECTORY_NAME" -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|ts\|mp3\)$')
+  done < <(find "$DIRECTORY_NAME" -iregex '.*\.\(mp4\|mkv\|flac\|ogg\|m2ts\|ts\|mp3\)$')
 }
 
-
-#USB_DESTINATION="/run/media/ruzickap/peru/"
+# USB_DESTINATION="/run/media/ruzickap/peru/"
 USB_DESTINATION="/run/media/pruzicka/f1a609de-5e47-4655-8017-917758eec60b/videos/"
 
 test -d $USB_DESTINATION || echo "*** Destionation directory \"$USB_DESTINATION\" doesn't exists !!!"
@@ -142,41 +143,41 @@ echo -e "\n*** 4k 8k 16k photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 wget -c --directory-prefix="$DIRECTORY_NAME" \
-http://4kw.in/Wallpapers/Campanula-takesimana-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Women-model-water-wet-swimming-closed-eyes-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Zoo-tiger-8k-7680x4320.jpg \
-http://4kw.in/Wallpapers/Silver-dress-girl-lying-grass-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Girl-dancing-pop-blonde-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Woman-on-a-bicycle-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Tiger-in-snow-8k-image.jpg \
-http://4kw.in/Wallpapers/Beautiful-woman-laying-in-the-grass-8k.jpg \
-http://4kw.in/Wallpapers/Bmw-r-ninet-2016-8k.jpg \
-http://4kw.in/Wallpapers/Colorful-niagara-falls-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Mountains-clouds-8k-uhd.jpg \
-http://4kw.in/Wallpapers/Milky-way-8k-hd.jpg \
-http://4kw.in/Wallpapers/Pretty-oriental-woman-8k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Programming-syntax-8k.jpg \
-http://4kw.in/Wallpapers/Ready-to-fly-8k.jpg \
-http://4kw.in/Wallpapers/Stars-sky-photography-8k.jpg \
-http://4kw.in/Wallpapers/3d-abstract-fractal-4k-wallpaper.jpg \
-http://4kw.in/Wallpapers/3d-abstract-fractal-balls-flying-4k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Abstract-flower-fractal-rotation-4k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Young-Woman-Enjoying-Sunny-Day-Flower-Field-4K.jpg \
-http://4kw.in/Wallpapers/Alps-mountains-4k-wallpaper.jpg \
-http://4kw.in/Wallpapers/Cosmos-blossom-4k.jpg \
-http://4kw.in/Wallpapers/Girl-looking-at-the-skull-4k.jpg \
-http://4kw.in/Wallpapers/City-life-4k.jpg \
-http://www.loadthegame.com/wp-content/uploads/2016/06/DOOM_4_02_1463158191.jpg \
-http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-04.jpg \
-http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-03.jpg \
-http://i.imgur.com/7FdS105.jpg \
-http://ps3.tgbus.com/UploadFiles/201305/20130516105149437.jpg \
-https://orig00.deviantart.net/4a77/f/2015/264/4/4/spiral_fractal_at_15360x8640___16k__by_ksennon-d9ae2ul.jpg
+  http://4kw.in/Wallpapers/Campanula-takesimana-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Women-model-water-wet-swimming-closed-eyes-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Zoo-tiger-8k-7680x4320.jpg \
+  http://4kw.in/Wallpapers/Silver-dress-girl-lying-grass-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Girl-dancing-pop-blonde-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Woman-on-a-bicycle-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Tiger-in-snow-8k-image.jpg \
+  http://4kw.in/Wallpapers/Beautiful-woman-laying-in-the-grass-8k.jpg \
+  http://4kw.in/Wallpapers/Bmw-r-ninet-2016-8k.jpg \
+  http://4kw.in/Wallpapers/Colorful-niagara-falls-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Mountains-clouds-8k-uhd.jpg \
+  http://4kw.in/Wallpapers/Milky-way-8k-hd.jpg \
+  http://4kw.in/Wallpapers/Pretty-oriental-woman-8k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Programming-syntax-8k.jpg \
+  http://4kw.in/Wallpapers/Ready-to-fly-8k.jpg \
+  http://4kw.in/Wallpapers/Stars-sky-photography-8k.jpg \
+  http://4kw.in/Wallpapers/3d-abstract-fractal-4k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/3d-abstract-fractal-balls-flying-4k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Abstract-flower-fractal-rotation-4k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Young-Woman-Enjoying-Sunny-Day-Flower-Field-4K.jpg \
+  http://4kw.in/Wallpapers/Alps-mountains-4k-wallpaper.jpg \
+  http://4kw.in/Wallpapers/Cosmos-blossom-4k.jpg \
+  http://4kw.in/Wallpapers/Girl-looking-at-the-skull-4k.jpg \
+  http://4kw.in/Wallpapers/City-life-4k.jpg \
+  http://www.loadthegame.com/wp-content/uploads/2016/06/DOOM_4_02_1463158191.jpg \
+  http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-04.jpg \
+  http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-03.jpg \
+  http://i.imgur.com/7FdS105.jpg \
+  http://ps3.tgbus.com/UploadFiles/201305/20130516105149437.jpg \
+  https://orig00.deviantart.net/4a77/f/2015/264/4/4/spiral_fractal_at_15360x8640___16k__by_ksennon-d9ae2ul.jpg
 
 echo -e "\n*** Test Patterns"
 DIRECTORY_NAME="Test_Patterns"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 wget -c --directory-prefix="$DIRECTORY_NAME" \
-https://upload.wikimedia.org/wikipedia/commons/a/aa/Philips_PM5544.svg \
-https://www.clker.com/cliparts/d/3/4/8/122620237858385735ivak_TV_Test_Screen.svg \
-https://upload.wikimedia.org/wikipedia/commons/2/2b/EIA_Resolution_Chart_1956.svg
+  https://upload.wikimedia.org/wikipedia/commons/a/aa/Philips_PM5544.svg \
+  https://www.clker.com/cliparts/d/3/4/8/122620237858385735ivak_TV_Test_Screen.svg \
+  https://upload.wikimedia.org/wikipedia/commons/2/2b/EIA_Resolution_Chart_1956.svg

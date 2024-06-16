@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.0](https://github.com/ruzickap/test_usb_stick_for_tv/compare/v0.0.1...v0.1.0) (2024-06-16)
+
+
+### Features
+
+* **gh-actions:** add lint-pr-title ([#12](https://github.com/ruzickap/test_usb_stick_for_tv/issues/12)) ([df8e26a](https://github.com/ruzickap/test_usb_stick_for_tv/commit/df8e26a906d4e66b609555237a8ded2dd739ecb1))
+* **gh:** add default GitHub repo files ([#16](https://github.com/ruzickap/test_usb_stick_for_tv/issues/16)) ([b823ad5](https://github.com/ruzickap/test_usb_stick_for_tv/commit/b823ad5e45e3d5d92a7acecd11dcb3438bbf4d68))
+* **gh:** add default GitHub repo files ([#17](https://github.com/ruzickap/test_usb_stick_for_tv/issues/17)) ([d1a1aad](https://github.com/ruzickap/test_usb_stick_for_tv/commit/d1a1aad9cf66a137ca1193702a2d8bcea95955cb))
+* **gh:** add default GitHub repo files ([#18](https://github.com/ruzickap/test_usb_stick_for_tv/issues/18)) ([0b10d99](https://github.com/ruzickap/test_usb_stick_for_tv/commit/0b10d99d5358848debf793c0d310501daee3195e))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#14](https://github.com/ruzickap/test_usb_stick_for_tv/issues/14)) ([432c961](https://github.com/ruzickap/test_usb_stick_for_tv/commit/432c96117e8711c01d5eab805a984833ebba1034))
+
 ## v0.0.1 (2020-05-10)
 
 - Add .release-it.yml to .gitignore [`30b5dcc`](https://github.com/ruzickap/test_usb_stick_for_tv/commit/30b5dcc1217f51511ec007f33deeec7b95e1c68b)

@@ -1,4 +1,6 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 download_file() {
   local DESCRIPTION=$1
@@ -29,7 +31,7 @@ download_file() {
 }
 
 # USB_DESTINATION="/run/media/ruzickap/peru/"
-USB_DESTINATION="/run/media/pruzicka/f1a609de-5e47-4655-8017-917758eec60b/videos/"
+USB_DESTINATION="/tmp/x/"
 
 test -d $USB_DESTINATION || echo "*** Destionation directory \"$USB_DESTINATION\" doesn't exists !!!"
 
@@ -45,25 +47,19 @@ download_file "PDF" "${CZ_CHARACTERS}" "https://www.votruba.in/int/pisma.pdf" "p
 
 DESCRIPTION="Dolby Digital Plus 7.1 Channel Check [1920x1080, H.264, 8 bits, 5 Mbs, 29.970 fps] [48 kHz, E-AC-3, 6 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://s1.demo-world.eu/hd_trailers.php?file=dolby_digital_plus_channel_check_lossless-DWEU.mkv"
+URL="https://opendir.samicrusader.me/demoworld/dolby_digital_plus_channel_check_lossless-DWEU.mkv"
 OUTPUT_FILE="dolby_digital_plus_channel_check_lossless-DWEU.mkv"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Dolby TrueHD 7.1 Channel Check [1920x1080, H.264, 8 bits, 6.5 Mbs, 29.970 fps] [48 kHz, TrueHD, 8 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://s1.demo-world.eu/hd_trailers.php?file=dolby_truehd_channel_check_lossless-DWEU.mkv"
+URL="https://opendir.samicrusader.me/demoworld/dolby_truehd_channel_check_lossless-DWEU.mkv"
 OUTPUT_FILE="dolby_truehd_channel_check_lossless-DWEU.mkv"
-download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
-
-DESCRIPTION="Dolby ATMOS 'Amaze' Demo [1920x1080, H.264, 8 bits, 23 Mbs, 24 fps] [48 kHz, Atmos, 8 ch]"
-DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://s1.demo-world.eu/hd_trailers.php?file=dolby_amaze_lossless-DWEU.m2ts"
-OUTPUT_FILE="dolby_amaze_lossless-DWEU.m2ts"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="DTS:X 7.1.4 Callout (Lossless) [3840x2160, H.265, 10 bits, 68.3 Mbs, 23.976 fps] [48 kHz, DTS XLL X, 8 ch]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://s1.demo-world.eu/uhd_trailers.php?file=dts_x_7_1_4_callout_lossless_uhd-DWEU.mkv"
+URL="https://opendir.samicrusader.me/demoworld/dts_x_7_1_4_callout_lossless_uhd-DWEU.mkv"
 OUTPUT_FILE="dts_x_7_1_4_callout_lossless_uhd-DWEU.mkv"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
@@ -73,7 +69,7 @@ download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Jellyfish Video Bitrate Test File [3840x2160, HEVC, 10 bits, 400 Mbs, 30 fps]"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="http://jell.yfish.us/media/jellyfish-400-mbps-4k-uhd-hevc-10bit.mkv"
+URL="https://repo.jellyfin.org/archive/jellyfish/media/jellyfish-400-mbps-4k-uhd-hevc-10bit.mkv"
 OUTPUT_FILE="jellyfish-400-mbps-4k-uhd-hevc-10bit.mkv"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
@@ -114,8 +110,14 @@ download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="OGG"
 DIRECTORY_NAME="${DESCRIPTION// /_}"
-URL="https://upload.wikimedia.org/wikipedia/commons/3/3c/01_-_Vivaldi_Spring_mvt_1_Allegro_-_John_Harrison_violin.ogg"
-OUTPUT_FILE="01_-_Vivaldi_Spring_mvt_1_Allegro_-_John_Harrison_violin.ogg"
+URL="https://upload.wikimedia.org/wikipedia/en/2/26/Europe_-_The_Final_Countdown.ogg"
+OUTPUT_FILE="Europe_-_The_Final_Countdown.ogg"
+download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
+
+DESCRIPTION="OGA"
+DIRECTORY_NAME="${DESCRIPTION// /_}"
+URL="https://upload.wikimedia.org/wikipedia/commons/f/ff/Vivaldi_-_Four_Seasons_1_Spring_mvt_1_Allegro_-_John_Harrison_violin.oga"
+OUTPUT_FILE="Vivaldi_-_Four_Seasons_1_Spring_mvt_1_Allegro_-_John_Harrison_violin.oga"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
 DESCRIPTION="Opus"
@@ -143,36 +145,10 @@ echo -e "\n*** 4k 8k 16k photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 wget -c --directory-prefix="$DIRECTORY_NAME" \
-  http://4kw.in/Wallpapers/Campanula-takesimana-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Women-model-water-wet-swimming-closed-eyes-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Zoo-tiger-8k-7680x4320.jpg \
-  http://4kw.in/Wallpapers/Silver-dress-girl-lying-grass-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Girl-dancing-pop-blonde-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Woman-on-a-bicycle-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Tiger-in-snow-8k-image.jpg \
-  http://4kw.in/Wallpapers/Beautiful-woman-laying-in-the-grass-8k.jpg \
-  http://4kw.in/Wallpapers/Bmw-r-ninet-2016-8k.jpg \
-  http://4kw.in/Wallpapers/Colorful-niagara-falls-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Mountains-clouds-8k-uhd.jpg \
-  http://4kw.in/Wallpapers/Milky-way-8k-hd.jpg \
-  http://4kw.in/Wallpapers/Pretty-oriental-woman-8k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Programming-syntax-8k.jpg \
-  http://4kw.in/Wallpapers/Ready-to-fly-8k.jpg \
-  http://4kw.in/Wallpapers/Stars-sky-photography-8k.jpg \
-  http://4kw.in/Wallpapers/3d-abstract-fractal-4k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/3d-abstract-fractal-balls-flying-4k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Abstract-flower-fractal-rotation-4k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Young-Woman-Enjoying-Sunny-Day-Flower-Field-4K.jpg \
-  http://4kw.in/Wallpapers/Alps-mountains-4k-wallpaper.jpg \
-  http://4kw.in/Wallpapers/Cosmos-blossom-4k.jpg \
-  http://4kw.in/Wallpapers/Girl-looking-at-the-skull-4k.jpg \
-  http://4kw.in/Wallpapers/City-life-4k.jpg \
   http://www.loadthegame.com/wp-content/uploads/2016/06/DOOM_4_02_1463158191.jpg \
-  http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-04.jpg \
-  http://www.mtxgaming.com/uploads/3/8/4/2/38425979/superres-03.jpg \
-  http://i.imgur.com/7FdS105.jpg \
-  http://ps3.tgbus.com/UploadFiles/201305/20130516105149437.jpg \
-  https://orig00.deviantart.net/4a77/f/2015/264/4/4/spiral_fractal_at_15360x8640___16k__by_ksennon-d9ae2ul.jpg
+  https://orig00.deviantart.net/4a77/f/2015/264/4/4/spiral_fractal_at_15360x8640___16k__by_ksennon-d9ae2ul.jpg \
+  https://hitokageproduction.com/files/imageSamples/avif-yuv444p12le.avif \
+  https://hitokageproduction.com/files/imageSamples/png-rgba64be.png
 
 echo -e "\n*** Test Patterns"
 DIRECTORY_NAME="Test_Patterns"

@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.1.0](https://github.com/ruzickap/test_usb_stick_for_tv/compare/v0.0.1...v0.1.0) (2025-05-04)
+
+
+### Features
+
+* add GitHub default templates ([#21](https://github.com/ruzickap/test_usb_stick_for_tv/issues/21)) ([e1f3a8e](https://github.com/ruzickap/test_usb_stick_for_tv/commit/e1f3a8e56257e2018aa0dbffca0a63060a44f3cf))
+* **gh-actions:** add lint-pr-title ([#12](https://github.com/ruzickap/test_usb_stick_for_tv/issues/12)) ([df8e26a](https://github.com/ruzickap/test_usb_stick_for_tv/commit/df8e26a906d4e66b609555237a8ded2dd739ecb1))
+* gha update, fix old URLs, README update ([#26](https://github.com/ruzickap/test_usb_stick_for_tv/issues/26)) ([6b4a19e](https://github.com/ruzickap/test_usb_stick_for_tv/commit/6b4a19e384520860ed9321313911906eef685d48))
+* **gh:** add default GitHub repo files ([#16](https://github.com/ruzickap/test_usb_stick_for_tv/issues/16)) ([b823ad5](https://github.com/ruzickap/test_usb_stick_for_tv/commit/b823ad5e45e3d5d92a7acecd11dcb3438bbf4d68))
+* **gh:** add default GitHub repo files ([#17](https://github.com/ruzickap/test_usb_stick_for_tv/issues/17)) ([d1a1aad](https://github.com/ruzickap/test_usb_stick_for_tv/commit/d1a1aad9cf66a137ca1193702a2d8bcea95955cb))
+* **gh:** add default GitHub repo files ([#18](https://github.com/ruzickap/test_usb_stick_for_tv/issues/18)) ([0b10d99](https://github.com/ruzickap/test_usb_stick_for_tv/commit/0b10d99d5358848debf793c0d310501daee3195e))
+* **gh:** add default github repo files ([#24](https://github.com/ruzickap/test_usb_stick_for_tv/issues/24)) ([0026f9d](https://github.com/ruzickap/test_usb_stick_for_tv/commit/0026f9d0cd5f79ccf362eb46bd287ea29a8295a8))
+* **gh:** add default github repo files ([#29](https://github.com/ruzickap/test_usb_stick_for_tv/issues/29)) ([f01567f](https://github.com/ruzickap/test_usb_stick_for_tv/commit/f01567f9fcac3326c29f471923004fee7e45eb1b))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#14](https://github.com/ruzickap/test_usb_stick_for_tv/issues/14)) ([432c961](https://github.com/ruzickap/test_usb_stick_for_tv/commit/432c96117e8711c01d5eab805a984833ebba1034))
+
 ## v0.0.1 (2020-05-10)
 
 - Add .release-it.yml to .gitignore [`30b5dcc`](https://github.com/ruzickap/test_usb_stick_for_tv/commit/30b5dcc1217f51511ec007f33deeec7b95e1c68b)

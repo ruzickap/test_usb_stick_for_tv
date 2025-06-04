@@ -12,8 +12,8 @@ To play UHD/4K video streams compressed with [H.265](https://en.wikipedia.org/wi
 * Bluetooth for wireless headphones - [LDAC](https://en.wikipedia.org/wiki/LDAC_(codec))
 * Bluetooth 5.0
 * Install and test Kodi/Plex on an Android TV
-* Raspberry Pi: Use Kodi audio passthrough (AC3, E-AC3, DTS).
-  The TV must decode audio from HDMI to save CPU resources on the Raspberry Pi.
+* Raspberry Pi -> Kodi -> Audio Passthrough (AC3, E-AC3, DTS) - TV should be
+  able to decode encoded audio sent through HDMI which saves CPU in RPi
 * [20 TVs tested: Which sets can pass surround sound to a sound bar?](https://www.cnet.com/news/20-tvs-tested-which-sets-can-pass-surround-sound-to-a-sound-bar/)
 * [HbbTV](https://en.wikipedia.org/wiki/Hybrid_Broadcast_Broadband_TV)
   * May apply only to some programs or be disabled

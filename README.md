@@ -1,32 +1,32 @@
 # test_usb_stick_for_tv
 
-This script will store testing videos/music/pictures to your USB Stick which
-can be used for testing TVs or another media player devices.
+This script stores test videos, music, and pictures on a USB stick.
+The stick can then be used to test TVs or other media player devices.
 
 ## UHD / 4K Video + Wireless Headphones
 
-For UHD / 4K Video streams with [H.265](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding)
-compression you will need:
+To play UHD/4K video streams compressed with [H.265](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding),
+you will need:
 
 * [1GB Network Interface](https://en.wikipedia.org/wiki/Gigabit_Ethernet)
 * [802.11ax](https://en.wikipedia.org/wiki/IEEE_802.11ax) (Wi-Fi 6)
-* Bluetooth for Wireless Headphones - [LDAC](https://en.wikipedia.org/wiki/LDAC_(codec))
+* Bluetooth for wireless headphones - [LDAC](https://en.wikipedia.org/wiki/LDAC_(codec))
 * Bluetooth 5.0
-* Install and test Kodi / Plex in case of Android TV
+* Install and test Kodi/Plex on an Android TV
 * Raspberry Pi -> Kodi -> Audio Passthrough (AC3, E-AC3, DTS) - TV should be
   able to decode encoded audio sent through HDMI which saves CPU in RPi
-  [20 TVs tested: Which sets can pass surround sound to a sound bar?](https://www.cnet.com/news/20-tvs-tested-which-sets-can-pass-surround-sound-to-a-sound-bar/)
+* [20 TVs tested: Which sets can pass surround sound to a sound bar?](https://www.cnet.com/news/20-tvs-tested-which-sets-can-pass-surround-sound-to-a-sound-bar/)
 * [HbbTV](https://en.wikipedia.org/wiki/Hybrid_Broadcast_Broadband_TV)
-  * Only for some programs / turned off
+  * May apply only to some programs or be disabled
 * Ultra HD Premium certification
 * HDMI 2.1
-* USB-C (USB 3.1 Gen1), note: [USB-C length](https://notebook.cz/clanky/technologie/2017/usb-3-1/usb-type-c-lenght.jpg)
+* USB-C (USB 3.1 Gen1); note: [USB-C length](https://notebook.cz/clanky/technologie/2017/usb-3-1/usb-type-c-lenght.jpg)
 * [HDR10+](https://en.wikipedia.org/wiki/High-dynamic-range_video)
 
 ## Tests
 
-* Sintel - Chnage Subtitles in second Chapter [01:43] - the CZ and SK subtitles
-  should be loaded from external file
+* Sintel: In the second chapter [01:43], change subtitles.
+  The CZ and SK subtitles should load from an external file.
 
 ## Notes
 

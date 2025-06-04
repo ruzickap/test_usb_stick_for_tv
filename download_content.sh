@@ -33,7 +33,7 @@ download_file() {
 # USB_DESTINATION="/run/media/ruzickap/peru/"
 USB_DESTINATION="/tmp/x/"
 
-test -d $USB_DESTINATION || echo "*** Destionation directory \"$USB_DESTINATION\" doesn't exists !!!"
+test -d $USB_DESTINATION || echo "*** Destination directory \"$USB_DESTINATION\" doesn't exist !!!"
 
 cd $USB_DESTINATION
 
@@ -141,7 +141,7 @@ URL="https://samples.mplayerhq.hu/flac/larger_than_64k_flac_metadata.txt"
 OUTPUT_FILE="larger_than_64k_flac_metadata.txt"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL" "$OUTPUT_FILE"
 
-echo -e "\n*** 4k 8k 16k photos"
+echo -e "\n*** 4k 8k 16k Photos"
 DIRECTORY_NAME="4k_8k_16k_Photos"
 test -d "$DIRECTORY_NAME" || mkdir "$DIRECTORY_NAME"
 wget -c --directory-prefix="$DIRECTORY_NAME" \

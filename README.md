@@ -5,7 +5,8 @@ The stick can then be used to test TVs or other media player devices.
 
 ## UHD / 4K Video + Wireless Headphones
 
-To play UHD/4K video streams compressed with [H.265](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding), you will need:
+To play UHD/4K video streams compressed with [H.265](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding),
+you will need:
 
 * [1GB Network Interface](https://en.wikipedia.org/wiki/Gigabit_Ethernet)
 * [802.11ax](https://en.wikipedia.org/wiki/IEEE_802.11ax) (Wi-Fi 6)

@@ -28,7 +28,7 @@ rumdl .
 lychee --cache .
 
 # JSON validation (supports comments)
-jsonlint --comments <file.json>
+jsonlint --comments file.json
 
 # GitHub Actions workflow validation
 actionlint

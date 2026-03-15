@@ -78,7 +78,7 @@ my_function "${MY_VALUE}" "/tmp/output"
 ## Markdown Style
 
 - Pass `rumdl` checks (config: `.rumdl.toml`)
-- Wrap lines at 72 characters
+- Wrap lines at 80 characters
 - Use proper heading hierarchy (no skipping levels)
 - Include language identifiers in code fences (e.g., `bash`, `json`)
 - Prefer code fences over inline code for multi-line examples
@@ -161,5 +161,5 @@ Follow [Conventional Branch](https://conventional-branch.github.io/):
 - [ ] Links validated with `lychee`
 - [ ] GitHub Actions pinned to full SHA commits
 - [ ] Commit message follows conventional format
-- [ ] Lines wrapped at 72 characters in Markdown
+- [ ] Lines wrapped at 80 characters in Markdown
 - [ ] Two spaces for indentation everywhere (no tabs)

@@ -110,7 +110,6 @@ infrastructure files:
 
 - **Checkov**: IaC scanner (skips `CKV_GHA_7`)
 - **DevSkim**: Pattern scanner (ignores DS162092, DS137138)
-- **KICS**: Fails on HIGH severity
 - **Trivy**: HIGH/CRITICAL only, ignores unfixed vulnerabilities
 
 ## Version Control

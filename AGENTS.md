@@ -36,7 +36,7 @@ typically unavailable):
 shellcheck --exclude=SC2317 download_content.sh
 shfmt --case-indent --indent 2 --space-redirects --diff download_content.sh
 rumdl check .
-lychee .          # link check; honors lychee.toml
+lychee . # link check; honors lychee.toml
 ```
 
 `shfmt` formatting is mandatory: 2-space indent, indented `case`, space before

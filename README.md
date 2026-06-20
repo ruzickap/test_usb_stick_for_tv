@@ -31,7 +31,6 @@ you will need:
 ## Notes
 
 * <http://kodi.wiki/view/Samples>
-* <https://andytather.co.uk/Panda/VideoGalleryPage.aspx>
 
 ## TVs
 

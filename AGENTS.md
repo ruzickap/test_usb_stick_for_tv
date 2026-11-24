@@ -12,18 +12,21 @@ suite** — the "code" is one shell script plus heavy CI/linting tooling.
 
 ## `download_content.sh` gotchas
 
-- It is **destructive to a real device path**. `USB_DESTINATION` is hardcoded
-  (currently `/tmp/x/`; a real-stick path is commented out). `cd "$USB_DESTINATION"`
-  runs near the top, so all downloads land there — change this before running,
-  never assume CWD.
-- Requires external tools not in this repo: `wget`, `mediainfo`, `find`.
+- It is **destructive to a real device path**. The destination is the only
+  argument (`./download_content.sh /run/media/$USER/<stick>/`). The script
+  `cd`s there first, so all downloads land there — never assume CWD.
+- Requires external tools not in this repo: `wget`, `mediainfo`.
   For each downloaded media file it generates `<file>.json` and `<file>.nfo`
   via `mediainfo`.
-- Uses `set -euo pipefail`. Filenames/dirs are derived from descriptions
-  (`${DESCRIPTION// /_}`) and intentionally include non-ASCII (Czech) names —
-  preserve UTF-8 and quoting when editing.
-- Do not "fix" the intentional HTTP (non-HTTPS) URLs — DevSkim rule DS137138 is
-  deliberately ignored for them.
+- Uses `set -euo pipefail`, but a failed `wget` only sets `FAILED=1`; the
+  script keeps going and exits `1` at the end. Keep `set -e`: it stops the
+  script when `cd` fails, before anything is written to the wrong disk.
+- Filenames/dirs are derived from descriptions (`${DESCRIPTION// /_}`) and
+  intentionally include non-ASCII (Czech) names — preserve UTF-8 and quoting
+  when editing. They must stay valid on FAT32/exFAT (for example, no `:`).
+- All download URLs use HTTPS. Some point to archive.org `id_` copies because
+  the original file is gone or its domain was taken over — do not switch them
+  back.
 
 ## Verification (run before committing)
 
@@ -36,7 +39,7 @@ typically unavailable):
 shellcheck --exclude=SC2317 download_content.sh
 shfmt --case-indent --indent 2 --space-redirects --diff download_content.sh
 rumdl check .
-lychee . # link check; honors lychee.toml
+lychee . download_content.sh # link check; honors lychee.toml
 ```
 
 `shfmt` formatting is mandatory: 2-space indent, indented `case`, space before
@@ -55,13 +58,18 @@ redirects. Apply with `-w` instead of `--diff`.
 - Tool tuning lives in dedicated config files: `.mega-linter.yml`,
   `.rumdl.toml` (line length, code blocks excluded), `lychee.toml`,
   `.checkov.yml`. Change behavior there, not via inline ignores.
+- Those config files and the workflows are copied in from
+  `my-git-projects/gh-repo-defaults` by multi-gitter, except
+  `.mega-linter.yml`: this repo keeps its own copy, which adds `.sh` to
+  lychee so the download URLs get link-checked. Keep that setting when you
+  bring in template changes.
 
 ## Commits, branches, PRs
 
 - Conventional Commits enforced by `commit-check`: subject ≤ 72 chars,
   lowercase subject allowed (`CCHK_SUBJECT_CAPITALIZED: false`).
 - Branch names must follow Conventional Branch (`feat/`, `fix/`, `chore/`, …).
-- PR titles are validated by `semantic-pull-request` (conventional format).
+- PR titles are validated by `commit-check` (`pr-title: true`).
   Open PRs as drafts. Sole code owner / reviewer: `@ruzickap`.
 - Releases are automated via release-please (`release-type: simple`) on `main`;
   do not tag or bump versions manually.

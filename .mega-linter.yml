@@ -68,6 +68,23 @@ REPOSITORY_KINGFISHER_ARGUMENTS: --exclude .git
 # Trivy (vulnerability scanner) - only check HIGH and CRITICAL severity
 REPOSITORY_TRIVY_ARGUMENTS: --severity HIGH,CRITICAL --ignore-unfixed
 
+# Repo-specific (multi-gitter keeps this file): add .sh to the default list so
+# lychee also checks the download URLs in download_content.sh
+SPELL_LYCHEE_FILE_EXTENSIONS:
+  - .md
+  - .mdx
+  - .markdown
+  - .html
+  - .htm
+  - .rst
+  - .txt
+  - .json
+  - .jsonc
+  - .json5
+  - .yaml
+  - .yml
+  - .sh
+
 # Allow lychee (link checker) to access GitHub token for API rate limits
 SPELL_LYCHEE_UNSECURED_ENV_VARIABLES:
   - GITHUB_TOKEN

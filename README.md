@@ -3,6 +3,16 @@
 This script stores test videos, music, and pictures on a USB stick.
 The stick can then be used to test TVs or other media player devices.
 
+It needs `wget` and `mediainfo` and downloads about 7.5 GB. Pass the
+mounted USB stick as the only argument:
+
+```bash
+./download_content.sh "/run/media/${USER}/USB_STICK/"
+```
+
+If a download fails, the script continues, prints `*** FAILED: <url>` and
+exits with `1` at the end. Run it again to resume.
+
 ## UHD / 4K Video + Wireless Headphones
 
 To play UHD/4K video streams compressed with [H.265](https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding),

@@ -12,18 +12,21 @@ suite** — the "code" is one shell script plus heavy CI/linting tooling.
 
 ## `download_content.sh` gotchas
 
-- It is **destructive to a real device path**. `USB_DESTINATION` is hardcoded
-  (currently `/tmp/x/`; a real-stick path is commented out). `cd "$USB_DESTINATION"`
-  runs near the top, so all downloads land there — change this before running,
-  never assume CWD.
-- Requires external tools not in this repo: `wget`, `mediainfo`, `find`.
+- It is **destructive to a real device path**. The destination is the only
+  argument (`./download_content.sh /run/media/$USER/<stick>/`). The script
+  `cd`s there first, so all downloads land there — never assume CWD.
+- Requires external tools not in this repo: `wget`, `mediainfo`.
   For each downloaded media file it generates `<file>.json` and `<file>.nfo`
   via `mediainfo`.
-- Uses `set -euo pipefail`. Filenames/dirs are derived from descriptions
-  (`${DESCRIPTION// /_}`) and intentionally include non-ASCII (Czech) names —
-  preserve UTF-8 and quoting when editing.
-- Do not "fix" the intentional HTTP (non-HTTPS) URLs — DevSkim rule DS137138 is
-  deliberately ignored for them.
+- Uses `set -euo pipefail`, but a failed `wget` only sets `FAILED=1`; the
+  script keeps going and exits `1` at the end. Keep `set -e`: it stops the
+  script when `cd` fails, before anything is written to the wrong disk.
+- Filenames/dirs are derived from descriptions (`${DESCRIPTION// /_}`) and
+  intentionally include non-ASCII (Czech) names — preserve UTF-8 and quoting
+  when editing. They must stay valid on FAT32/exFAT (for example, no `:`).
+- All download URLs use HTTPS. Some point to archive.org `id_` copies because
+  the original file is gone or its domain was taken over — do not switch them
+  back.
 
 ## Verification (run before committing)
 

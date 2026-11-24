@@ -83,7 +83,8 @@ URL="https://www.libde265.org/hevc-bitstreams/sintel-4096x1744-cfg02.mkv"
 download_file "$DESCRIPTION" "$DIRECTORY_NAME" "$URL"
 OUTPUT_FILE="sintel-4096x1744-cfg02-cz.srt"
 download_file "Sintel CZ Subtitles (sintel_cz.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_cz.srt" "$OUTPUT_FILE"
-cp "${DIRECTORY_NAME}/sintel-4096x1744-cfg02-cz.srt" "${DIRECTORY_NAME}/sintel-4096x1744-cfg02.srt"
+# Same file under the video's name, so players load it by default
+download_file "Sintel CZ Subtitles (sintel_cz.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_cz.srt" "sintel-4096x1744-cfg02.srt"
 OUTPUT_FILE="sintel-4096x1744-cfg02-sk.srt"
 download_file "Sintel SK Subtitles (sintel_sk.srt)" "$DIRECTORY_NAME" "https://download.blender.org/durian/subs/sintel_sk.srt" "$OUTPUT_FILE"
 

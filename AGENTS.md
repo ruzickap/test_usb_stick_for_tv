@@ -39,7 +39,7 @@ typically unavailable):
 shellcheck --exclude=SC2317 download_content.sh
 shfmt --case-indent --indent 2 --space-redirects --diff download_content.sh
 rumdl check .
-lychee . # link check; honors lychee.toml
+lychee . download_content.sh # link check; honors lychee.toml
 ```
 
 `shfmt` formatting is mandatory: 2-space indent, indented `case`, space before
@@ -58,6 +58,11 @@ redirects. Apply with `-w` instead of `--diff`.
 - Tool tuning lives in dedicated config files: `.mega-linter.yml`,
   `.rumdl.toml` (line length, code blocks excluded), `lychee.toml`,
   `.checkov.yml`. Change behavior there, not via inline ignores.
+- Those config files and the workflows are copied in from
+  `my-git-projects/gh-repo-defaults` by multi-gitter, except
+  `.mega-linter.yml`: this repo keeps its own copy, which adds `.sh` to
+  lychee so the download URLs get link-checked. Keep that setting when you
+  bring in template changes.
 
 ## Commits, branches, PRs
 

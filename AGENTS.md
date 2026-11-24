@@ -69,7 +69,7 @@ redirects. Apply with `-w` instead of `--diff`.
 - Conventional Commits enforced by `commit-check`: subject ≤ 72 chars,
   lowercase subject allowed (`CCHK_SUBJECT_CAPITALIZED: false`).
 - Branch names must follow Conventional Branch (`feat/`, `fix/`, `chore/`, …).
-- PR titles are validated by `semantic-pull-request` (conventional format).
+- PR titles are validated by `commit-check` (`pr-title: true`).
   Open PRs as drafts. Sole code owner / reviewer: `@ruzickap`.
 - Releases are automated via release-please (`release-type: simple`) on `main`;
   do not tag or bump versions manually.
